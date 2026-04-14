@@ -1,0 +1,8 @@
+{
+    "name": "IR Remote Editor",
+    "content_in_root": false,
+    "domains": ["ir_remote_editor"],
+    "homeassistant": "2024.1.0",
+    "iot_class": "local_push",
+    "render_readme": true
+}
