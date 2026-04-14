@@ -19,7 +19,7 @@
 ## 📦 Установка
 
 ### Через HACS (рекомендуется)
-[![Add to HACS](https://camo.githubusercontent.com/49f849a6409cdcad49e32d41115ab078f810d960b35466436e028d4552aadd40/68747470733a2f2f6d792e686f6d652d617373697374616e742e696f2f6261646765732f686163735f7265706f7369746f72792e737667)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Lexasvo&repository=IR-Remote-Editor&category=Integration)
+[![Add to HACS](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Lexasvo&repository=IR-Remote-Editor&category=Integration)
 
 1. Добавьте пользовательский репозиторий: `https://github.com/Lexasvo/ir-remote-editor`
 2. Установите интеграцию "IR Remote Editor"
