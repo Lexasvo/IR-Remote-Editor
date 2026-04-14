@@ -32,14 +32,14 @@
 ## 🔧 Требования
 
 - Home Assistant 2024.1+
-- ESP8266/ESP32 с прошивкой **Tasmota 14.x** с поддержкой IR
+- ESP8266/ESP32 с прошивкой Tasmota с поддержкой IR
 - MQTT брокер (Mosquitto)
 
 ## 📡 Настройка Tasmota
 
 ### 1. Прошивка
 Скачайте и установите прошивку с поддержкой IR:
-- [tasmota-ir.bin](http://ota.tasmota.com/tasmota/release-14.4.0/tasmota-ir.bin)
+- [tasmota-ir.bin](https://github.com/arendst/Tasmota/releases/download/v15.3.0/tasmota-ir.bin)
 
 ### 2. Настройка пинов через веб-интерфейс
 
