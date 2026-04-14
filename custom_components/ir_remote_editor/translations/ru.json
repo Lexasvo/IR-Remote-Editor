@@ -1,0 +1,77 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Создать новый ИК-пульт",
+                "description": "Создайте виртуальный пульт для управления ИК-устройствами",
+                "data": {
+                    "remote_name": "Название пульта",
+                    "esphome_device": "ID устройства Tasmota"
+                }
+            }
+        },
+        "error": {
+            "already_configured": "Пульт с таким именем уже существует"
+        },
+        "abort": {
+            "already_configured": "Пульт с таким именем уже существует",
+            "no_buttons": "Нет кнопок для выбора"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Управление пультом",
+                "description": "**Текущие кнопки:**\n\n{current_buttons}\n\nВыберите действие:",
+                "data": {
+                    "action": "Действие"
+                }
+            },
+            "add_button": {
+                "title": "Добавить кнопку",
+                "description": "Введите параметры новой кнопки",
+                "data": {
+                    "name": "Название кнопки",
+                    "code": "RAW код",
+                    "icon": "Иконка",
+                    "frequency": "Частота"
+                }
+            },
+            "select_button": {
+                "title": "{title}",
+                "description": "Выберите кнопку из списка",
+                "data": {
+                    "button_index": "Кнопка"
+                }
+            },
+            "edit_button": {
+                "title": "Редактировать кнопку",
+                "description": "Редактирование кнопки: **{button_name}**",
+                "data": {
+                    "name": "Новое название",
+                    "icon": "Иконка",
+                    "frequency": "Частота"
+                }
+            },
+            "view_button": {
+                "title": "RAW код",
+                "description": "**{button_name}**\n\n```\n{raw_code}\n```"
+            },
+            "confirm_delete": {
+                "title": "Подтверждение удаления",
+                "description": "Вы уверены, что хотите удалить эту кнопку?\n\n**{button_name}**\n\nЭто действие нельзя отменить.",
+                "data": {
+                    "confirm": "Да, удалить"
+                }
+            },
+            "configure_device": {
+                "title": "Настройки устройства",
+                "description": "Измените основные настройки пульта",
+                "data": {
+                    "remote_name": "Название пульта",
+                    "esphome_device": "ID устройства Tasmota"
+                }
+            }
+        }
+    }
+}
