@@ -1,0 +1,12 @@
+send_ir_code:
+  name: Send IR Code
+  description: Send an IR code via MQTT
+  fields:
+    entity_id:
+      name: Button Entity
+      description: The IR Remote Editor button entity
+      required: true
+      selector:
+        entity:
+          integration: ir_remote_editor
+          domain: button
