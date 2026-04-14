@@ -1,0 +1,12 @@
+{
+    "entity": {
+        "button": {
+            "default": "mdi:remote"
+        }
+    },
+    "services": {
+        "send_ir_code": {
+            "service": "mdi:send-outline"
+        }
+    }
+}
