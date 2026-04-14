@@ -1,0 +1,72 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Create New IR Remote",
+                "data": {
+                    "remote_name": "Remote Name",
+                    "esphome_device": "Tasmota Device ID"
+                }
+            }
+        },
+        "error": {
+            "already_configured": "A remote with this name already exists"
+        },
+        "abort": {
+            "already_configured": "A remote with this name already exists"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Remote Management",
+                "description": "Current buttons:\n{current_buttons}\n\nSelect an action:",
+                "data": {
+                    "action": "Action"
+                }
+            },
+            "add_button": {
+                "title": "Add Button",
+                "data": {
+                    "name": "Button Name",
+                    "code": "RAW Code",
+                    "icon": "Icon",
+                    "frequency": "Frequency"
+                }
+            },
+            "select_button": {
+                "title": "{title}",
+                "data": {
+                    "button_index": "Button"
+                }
+            },
+            "edit_button": {
+                "title": "Edit Button",
+                "description": "Editing: **{button_name}**",
+                "data": {
+                    "name": "New Name",
+                    "icon": "Icon",
+                    "frequency": "Frequency"
+                }
+            },
+            "view_button": {
+                "title": "RAW Code",
+                "description": "**{button_name}**\n\n```\n{raw_code}\n```"
+            },
+            "confirm_delete": {
+                "title": "Confirm Delete",
+                "description": "Delete **{button_name}**?\n\nThis cannot be undone.",
+                "data": {
+                    "confirm": "Yes, delete"
+                }
+            },
+            "configure_device": {
+                "title": "Device Settings",
+                "data": {
+                    "remote_name": "Remote Name",
+                    "esphome_device": "Tasmota Device ID"
+                }
+            }
+        }
+    }
+}
