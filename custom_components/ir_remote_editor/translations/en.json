@@ -1,0 +1,77 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Create New IR Remote",
+                "description": "Create a virtual remote to control IR devices",
+                "data": {
+                    "remote_name": "Remote Name",
+                    "esphome_device": "Tasmota Device ID"
+                }
+            }
+        },
+        "error": {
+            "already_configured": "A remote with this name already exists"
+        },
+        "abort": {
+            "already_configured": "A remote with this name already exists",
+            "no_buttons": "No buttons to select"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "Remote Management",
+                "description": "**Current buttons:**\n\n{current_buttons}\n\nSelect an action:",
+                "data": {
+                    "action": "Action"
+                }
+            },
+            "add_button": {
+                "title": "Add Button",
+                "description": "Enter the parameters for the new button",
+                "data": {
+                    "name": "Button Name",
+                    "code": "RAW Code",
+                    "icon": "Icon",
+                    "frequency": "Frequency"
+                }
+            },
+            "select_button": {
+                "title": "{title}",
+                "description": "Select a button from the list",
+                "data": {
+                    "button_index": "Button"
+                }
+            },
+            "edit_button": {
+                "title": "Edit Button",
+                "description": "Editing button: **{button_name}**",
+                "data": {
+                    "name": "New Name",
+                    "icon": "Icon",
+                    "frequency": "Frequency"
+                }
+            },
+            "view_button": {
+                "title": "RAW Code",
+                "description": "**{button_name}**\n\n```\n{raw_code}\n```"
+            },
+            "confirm_delete": {
+                "title": "Confirm Deletion",
+                "description": "Are you sure you want to delete this button?\n\n**{button_name}**\n\nThis action cannot be undone.",
+                "data": {
+                    "confirm": "Yes, delete button"
+                }
+            },
+            "configure_device": {
+                "title": "Device Settings",
+                "description": "Change the main remote settings",
+                "data": {
+                    "remote_name": "Remote Name",
+                    "esphome_device": "Tasmota Device ID"
+                }
+            }
+        }
+    }
+}
