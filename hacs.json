@@ -1,10 +1,7 @@
 {
-    "name": "IR Remote Editor",
-    "content_in_root": false,
-    "domains": ["ir_remote_editor"],
-    "homeassistant": "2024.1.0",
-    "iot_class": "local_push",
-    "render_readme": true,
-    "zip_release": true,
-    "filename": "ir_remote_editor.zip"
+  "name": "IR Remote Editor",
+  "filename": "ir_remote_editor.zip",  
+  "homeassistant": "2025.9.0",
+  "render_readme": true,
+  "zip_release": true
 }
