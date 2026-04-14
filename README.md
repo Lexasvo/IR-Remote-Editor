@@ -2,7 +2,6 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 [![GitHub Release](https://img.shields.io/github/release/Lexasvo/ir-remote-editor.svg)](https://github.com/Lexasvo/ir-remote-editor/releases)
-[![GitHub License](https://img.shields.io/github/license/Lexasvo/IR-Remote-Editor.svg)](./LICENSE)
 
 Интеграция для создания виртуальных ИК-пультов в Home Assistant. Работает с ESP8266/ESP32, прошитыми Tasmota с поддержкой IR.
 
