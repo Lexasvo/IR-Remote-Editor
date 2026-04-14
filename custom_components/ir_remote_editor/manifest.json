@@ -3,5 +3,8 @@
     "name": "IR Remote Editor",
     "codeowners": ["@Lexasvo"],
     "config_flow": true,
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "documentation": "https://github.com/Lexasvo/IR-Remote-Editor/blob/main/README.md",
+    "iot_class": "local_polling",
+    "dependencies": ["mqtt"]
 }
