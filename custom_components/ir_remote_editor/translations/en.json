@@ -7,6 +7,10 @@
                 "data": {
                     "remote_name": "Remote Name",
                     "esphome_device": "Tasmota Device ID"
+                },
+                "data_description": {
+                    "remote_name": "For example: Living Room TV or Bedroom AC",
+                    "esphome_device": "Device ID from Tasmota Topic setting"
                 }
             }
         },
@@ -34,7 +38,13 @@
                     "name": "Button Name",
                     "code": "RAW Code",
                     "icon": "Icon",
-                    "frequency": "Frequency"
+                    "frequency": "Frequency (kHz)"
+                },
+                "data_description": {
+                    "name": "For example: Power TV or Volume Up",
+                    "code": "RAW code captured from remote",
+                    "icon": "Choose an icon for the button",
+                    "frequency": "Carrier frequency (36, 38, 40, 56 kHz)"
                 }
             },
             "select_button": {
@@ -50,7 +60,7 @@
                 "data": {
                     "name": "New Name",
                     "icon": "Icon",
-                    "frequency": "Frequency"
+                    "frequency": "Frequency (kHz)"
                 }
             },
             "view_button": {
@@ -71,6 +81,17 @@
                     "remote_name": "Remote Name",
                     "esphome_device": "Tasmota Device ID"
                 }
+            }
+        }
+    },
+    "selector": {
+        "action": {
+            "options": {
+                "add": "➕ Add Button",
+                "edit": "✏️ Edit Button",
+                "delete": "❌ Delete Button",
+                "view": "👁️ View RAW Code",
+                "config": "⚙️ Device Settings"
             }
         }
     }
