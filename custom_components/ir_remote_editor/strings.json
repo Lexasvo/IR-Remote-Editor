@@ -13,14 +13,15 @@
             "already_configured": "A remote with this name already exists"
         },
         "abort": {
-            "already_configured": "A remote with this name already exists"
+            "already_configured": "A remote with this name already exists",
+            "no_buttons": "No buttons to select"
         }
     },
     "options": {
         "step": {
             "init": {
                 "title": "Remote Management",
-                "description": "Current buttons:\n{current_buttons}\n\nSelect an action:",
+                "description": "**Current buttons:**\n\n{current_buttons}\n\nSelect an action:",
                 "data": {
                     "action": "Action"
                 }
@@ -31,7 +32,7 @@
                     "name": "Button Name",
                     "code": "RAW Code",
                     "icon": "Icon",
-                    "frequency": "Frequency"
+                    "frequency": "Frequency (kHz)"
                 }
             },
             "select_button": {
@@ -46,7 +47,7 @@
                 "data": {
                     "name": "New Name",
                     "icon": "Icon",
-                    "frequency": "Frequency"
+                    "frequency": "Frequency (kHz)"
                 }
             },
             "view_button": {
