@@ -16,7 +16,6 @@ from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
-# Доступные частоты (кГц)
 FREQUENCIES = ["36", "38", "40", "56"]
 
 
@@ -108,13 +107,13 @@ class IRRemoteOptionsFlow(config_entries.OptionsFlow):
             elif action == "config":
                 return await self.async_step_configure_device()
 
-        menu_options = {"add": "➕ Добавить кнопку", "config": "⚙️ Настройки устройства"}
+        menu_options = {"add": "➕ Add Button", "config": "⚙️ Device Settings"}
         if self._buttons:
-            menu_options["edit"] = "✏️ Редактировать кнопку"
-            menu_options["delete"] = "❌ Удалить кнопку"
-            menu_options["view"] = "👁️ Просмотреть RAW код"
+            menu_options["edit"] = "✏️ Edit Button"
+            menu_options["delete"] = "❌ Delete Button"
+            menu_options["view"] = "👁️ View RAW Code"
 
-        buttons_list = "\n".join([f"• {b['name']} ({b.get('frequency', '38')} kHz)" for b in self._buttons]) if self._buttons else "❌ Нет кнопок"
+        buttons_list = "\n".join([f"• {b['name']} ({b.get('frequency', '38')} kHz)" for b in self._buttons]) if self._buttons else "No buttons"
 
         return self.async_show_form(
             step_id="init",
@@ -161,11 +160,11 @@ class IRRemoteOptionsFlow(config_entries.OptionsFlow):
         button_options = {str(i): f"{b['name']} ({b.get('frequency', '38')} kHz)" for i, b in enumerate(self._buttons)}
         
         titles = {
-            "edit": "Выберите кнопку для редактирования",
-            "delete": "Выберите кнопку для удаления",
-            "view": "Выберите кнопку для просмотра RAW кода"
+            "edit": "Select button to edit",
+            "delete": "Select button to delete",
+            "view": "Select button to view RAW code"
         }
-        title = titles.get(self._action, "Выберите кнопку")
+        title = titles.get(self._action, "Select button")
 
         return self.async_show_form(
             step_id="select_button",
@@ -202,8 +201,7 @@ class IRRemoteOptionsFlow(config_entries.OptionsFlow):
                 vol.Optional("frequency", default=current.get("frequency", "38")): vol.In(FREQUENCIES),
             }),
             description_placeholders={
-                "button_name": current["name"],
-                "raw_code": current["code"][:200] + "..." if len(current["code"]) > 200 else current["code"]
+                "button_name": current["name"]
             }
         )
 
@@ -219,7 +217,6 @@ class IRRemoteOptionsFlow(config_entries.OptionsFlow):
             data_schema=vol.Schema({}),
             description_placeholders={
                 "button_name": current["name"],
-                "frequency": current.get("frequency", "38"),
                 "raw_code": current["code"]
             }
         )
@@ -234,7 +231,7 @@ class IRRemoteOptionsFlow(config_entries.OptionsFlow):
                 del self._buttons[self._selected_index]
                 await self._save_buttons()
                 await self._remove_entity(button_name)
-                _LOGGER.warning("🗑️ Deleted button: %s", button_name)
+                _LOGGER.warning("Deleted button: %s", button_name)
             
             return await self.async_step_init()
 
@@ -249,13 +246,12 @@ class IRRemoteOptionsFlow(config_entries.OptionsFlow):
             }),
             description_placeholders={
                 "button_name": button["name"],
-                "frequency": button.get("frequency", "38"),
                 "button_code": raw_code
             }
         )
 
     async def async_step_configure_device(self, user_input: dict[str, Any] | None = None) -> FlowResult:
-        """Configure ESPHome device."""
+        """Configure Tasmota device."""
         if user_input is not None:
             new_data = dict(self._entry.data)
             new_data["remote_name"] = user_input["remote_name"]
@@ -287,4 +283,4 @@ class IRRemoteOptionsFlow(config_entries.OptionsFlow):
         
         if entity_registry.async_get(entity_id):
             entity_registry.async_remove(entity_id)
-            _LOGGER.warning("🧹 Removed entity: %s", entity_id)
+            _LOGGER.warning("Removed entity: %s", entity_id)
