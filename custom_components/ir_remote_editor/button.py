@@ -71,7 +71,7 @@ async def async_setup_entry(
         
         if buttons:
             async_add_entities(buttons)
-            _LOGGER.warning("✅ Added %d buttons", len(buttons))
+            _LOGGER.warning("Added %d buttons", len(buttons))
             
     except Exception as e:
         _LOGGER.error("Failed: %s", e, exc_info=True)
@@ -111,12 +111,12 @@ class IRRemoteButton(ButtonEntity):
         global LAST_SEND_TIME, SEND_LOCK
         
         if SEND_LOCK:
-            _LOGGER.warning("⏭️ SEND LOCKED")
+            _LOGGER.warning("SEND LOCKED")
             return
         
         now = time.time()
         if now - LAST_SEND_TIME < SEND_COOLDOWN:
-            _LOGGER.warning("⏭️ Debounced")
+            _LOGGER.warning("Debounced")
             return
         
         SEND_LOCK = True
@@ -128,18 +128,14 @@ class IRRemoteButton(ButtonEntity):
                 _LOGGER.error("Not a RAW code")
                 return
             
-            # Получаем исходную строку RawData (с буквами и знаками)
             raw_str = code[4:].strip()
-            
             if not raw_str:
                 _LOGGER.error("Empty RAW data")
                 return
             
-            _LOGGER.info("📤 Sending RAW @ %d kHz", self._frequency)
+            _LOGGER.info("Sending RAW @ %d kHz", self._frequency)
             
-            # Отправляем как есть: частота,исходный_RawData
             data_str = f"{self._frequency},{raw_str}"
-            
             topic = f"cmnd/{self._device_id}/IRsend"
             
             await self.hass.services.async_call(
@@ -148,8 +144,7 @@ class IRRemoteButton(ButtonEntity):
                 blocking=False
             )
             
-            _LOGGER.info("✅ Sent to MQTT: %s", topic)
-            _LOGGER.debug("Payload: %s", data_str[:100])
+            _LOGGER.info("Sent to MQTT: %s", topic)
             
             await asyncio.sleep(0.3)
         except Exception as e:
@@ -164,7 +159,7 @@ class IRLearningModeButton(ButtonEntity):
     def __init__(self, config_entry: ConfigEntry, device_id: str):
         self._config_entry = config_entry
         self._device_id = device_id
-        self._attr_name = "🎓 Режим обучения"
+        self._attr_name = "Learning Mode"
         self._attr_unique_id = f"{config_entry.entry_id}_learning"
         self._attr_icon = "mdi:teach"
         self._attr_device_info = DeviceInfo(
@@ -177,7 +172,7 @@ class IRLearningModeButton(ButtonEntity):
     async def async_press(self):
         from . import set_learning_mode
         set_learning_mode(self._config_entry.entry_id, True)
-        _LOGGER.warning("🎓 Learning mode ON")
+        _LOGGER.warning("Learning mode ON")
 
 
 class IRClearCodeButton(ButtonEntity):
@@ -186,7 +181,7 @@ class IRClearCodeButton(ButtonEntity):
     def __init__(self, config_entry: ConfigEntry, device_id: str):
         self._config_entry = config_entry
         self._device_id = device_id
-        self._attr_name = "🧹 Выключить обучение"
+        self._attr_name = "Clear Learning"
         self._attr_unique_id = f"{config_entry.entry_id}_clear"
         self._attr_icon = "mdi:broom"
         self._attr_device_info = DeviceInfo(
@@ -199,4 +194,4 @@ class IRClearCodeButton(ButtonEntity):
     async def async_press(self):
         from . import set_learning_mode
         set_learning_mode(self._config_entry.entry_id, False)
-        _LOGGER.warning("🧹 Learning mode OFF")
+        _LOGGER.warning("Learning mode OFF")
