@@ -7,6 +7,10 @@
                 "data": {
                     "remote_name": "Название пульта",
                     "esphome_device": "ID устройства Tasmota"
+                },
+                "data_description": {
+                    "remote_name": "Например: Гостиная ТВ или Кондиционер Спальня",
+                    "esphome_device": "ID устройства из настройки Topic в Tasmota"
                 }
             }
         },
@@ -34,7 +38,13 @@
                     "name": "Название кнопки",
                     "code": "RAW код",
                     "icon": "Иконка",
-                    "frequency": "Частота"
+                    "frequency": "Частота (кГц)"
+                },
+                "data_description": {
+                    "name": "Например: Включить ТВ или Громкость +",
+                    "code": "RAW код, захваченный с пульта",
+                    "icon": "Выберите иконку для кнопки",
+                    "frequency": "Несущая частота (36, 38, 40, 56 кГц)"
                 }
             },
             "select_button": {
@@ -50,7 +60,7 @@
                 "data": {
                     "name": "Новое название",
                     "icon": "Иконка",
-                    "frequency": "Частота"
+                    "frequency": "Частота (кГц)"
                 }
             },
             "view_button": {
@@ -71,6 +81,17 @@
                     "remote_name": "Название пульта",
                     "esphome_device": "ID устройства Tasmota"
                 }
+            }
+        }
+    },
+    "selector": {
+        "action": {
+            "options": {
+                "add": "➕ Добавить кнопку",
+                "edit": "✏️ Редактировать кнопку",
+                "delete": "❌ Удалить кнопку",
+                "view": "👁️ Просмотреть RAW код",
+                "config": "⚙️ Настройки устройства"
             }
         }
     }
